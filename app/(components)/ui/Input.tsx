@@ -4,38 +4,70 @@ import clsx from "clsx";
 type InputProps = {
   label?: string;
   error?: string;
-  type?: string;
-  className?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  success?: boolean;
+  size?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  full?: boolean;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">;
 
 const Input = ({
   label,
   error,
-  type = "text",
+  success,
+  size = "md",
+  full = true,
+  disabled = false,
+  leftIcon,
+  rightIcon,
   className,
   ...props
 }: InputProps) => {
+  const sizes = {
+    sm: "text-sm py-1.5",
+    md: "text-base py-2",
+    lg: "text-lg py-3",
+  } as const;
   return (
-    <div className="w-full mb-4">
-      {/* 라벨 */}
+    <div className={clsx("flex flex-col gap-1", full && "w-full")}>
+      {/* Label */}
       {label && (
-        <label className="block text-sm font-medium mb-1">{label}</label>
+        <label className="text-sm font-medium text-brand-gray900">
+          {label}
+        </label>
       )}
 
-      {/* 인풋 */}
-      <input
-        type={type}
+      <div
         className={clsx(
-          "w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-red-500 transition",
-          error && "border-red-500",
+          "flex items-center gap-2 px-3 border rounded-base transition-all bg-white",
+          sizes[size],
+
+          disabled
+            ? "bg-brand-gray100 text-brand-gray400 cursor-not-allowed opacity-60"
+            : error
+            ? "border-brand-danger focus:border-brand-danger focus:ring-2 focus:ring-brand-danger/30"
+            : success
+            ? "border-brand-success"
+            : "border-brand-gray200 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary-light/40",
+
           className
         )}
-        {...props}
-      />
+      >
+        {leftIcon && <span className="text-brand-gray600">{leftIcon}</span>}
 
-      {/* 에러 메시지 */}
-      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+        <input
+          disabled={disabled}
+          className="flex-1 outline-none bg-transparent"
+          {...props}
+        />
+
+        {rightIcon && <span className="text-brand-gray600">{rightIcon}</span>}
+      </div>
+
+      {error && <p className="text-brand-danger text-xs">{error}</p>}
     </div>
   );
 };
+
 export default Input;
