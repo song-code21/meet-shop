@@ -56,7 +56,6 @@ const Radio = ({
         />
       </div>
 
-      {/* 텍스트 라벨 */}
       {label && <span className="text-sm text-brand-gray900">{label}</span>}
     </label>
   );
