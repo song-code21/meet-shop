@@ -46,10 +46,10 @@ const Step3 = ({ form, onNext, onPrev }: any) => {
         <Button onClick={onPrev} variant="secondary">
           이전
         </Button>
-        <Button onClick={onNext} full>
-          다음
-        </Button>
+        <Button onClick={onNext}>다음 단계</Button>
       </div>
     </div>
   );
 };
+
+export default Step3;

@@ -41,9 +41,7 @@ const Step4 = ({ form, onPrev }: any) => {
         <Button variant="secondary" onClick={onPrev}>
           이전
         </Button>
-        <Button type="submit" full>
-          회원가입 완료
-        </Button>
+        <Button type="submit">회원가입 완료</Button>
       </div>
     </div>
   );

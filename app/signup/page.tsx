@@ -1,100 +1,57 @@
 "use client";
 
 import { useState } from "react";
-import Button from "../(components)/ui/Button";
-import Input from "../(components)/ui/Input";
+import { useForm } from "react-hook-form";
+import Form from "../(components)/ui/form/Form";
+import Step1 from "./Step1";
+import Step2 from "./Step2";
+import Step3 from "./Step3";
+import Step4 from "./Step4";
 
-const SignupPage = () => {
+const SignUpPage = () => {
   const [step, setStep] = useState(1);
 
+  const form = useForm({
+    defaultValues: {
+      memberType: "normal",
+      businessNumber: "",
+      terms: false,
+      email: "",
+      password: "",
+      confirmPassword: "",
+      name: "",
+      storeName: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    console.log("최종 회원가입 데이터: ", data);
+  };
+
   return (
-    <main className="flex items-center justify-center min-h-[80vh] px-4">
-      <div className="w-full max-w-md bg-white border rounded-lg p-6 shadow-sm">
-        {step === 1 && <Step1Terms onNext={() => setStep(2)} />}
+    <div className="max-w-lg mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-8">회원가입</h1>
+
+      <Form onSubmit={form.handleSubmit(onSubmit)}>
+        {step === 1 && <Step1 form={form} onNext={() => setStep(2)} />}
         {step === 2 && (
-          <Step2BizCheck onNext={() => setStep(3)} onPrev={() => setStep(1)} />
+          <Step2
+            form={form}
+            onNext={() => setStep(3)}
+            onPrev={() => setStep(1)}
+          />
         )}
-        {step === 3 && <Step3Account />}
-      </div>
-    </main>
-  );
-};
-
-const Step1Terms = ({ onNext }: { onNext: () => void }) => {
-  return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">약관 동의</h1>
-
-      <div className="space-y-3 text-sm mb-6">
-        <label className="flex items-center gap-2">
-          <input type="checkbox" className="w-4 h-4" />
-          이용약관 동의 (필수)
-        </label>
-
-        <label className="flex items-center gap-2">
-          <input type="checkbox" className="w-4 h-4" />
-          개인정보 처리방침 동의 (필수)
-        </label>
-
-        <label className="flex items-center gap-2">
-          <input type="checkbox" className="w-4 h-4" />
-          마케팅 이용 동의 (선택)
-        </label>
-      </div>
-
-      <Button full variant="primary" onClick={onNext}>
-        다음 단계 →
-      </Button>
+        {step === 3 && (
+          <Step3
+            form={form}
+            onNext={() => setStep(4)}
+            onPrev={() => setStep(2)}
+          />
+        )}
+        {step === 4 && <Step4 form={form} onPrev={() => setStep(3)} />}
+      </Form>
     </div>
   );
 };
 
-const Step2BizCheck = ({
-  onNext,
-  onPrev,
-}: {
-  onNext: () => void;
-  onPrev: () => void;
-}) => {
-  return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">사업자 등록 확인</h1>
-
-      <p className="text-sm text-zinc-600 mb-4">
-        사업자 등록번호를 입력해주세요.
-      </p>
-      <Input type="text" placeholder="000-0000-0000" />
-      <div className="flex gap-3">
-        <Button variant="secondary" full onClick={onPrev}>
-          뒤로
-        </Button>
-        <Button variant="primary" full onClick={onNext}>
-          확인하고 다음 →
-        </Button>
-      </div>
-    </div>
-  );
-};
-
-function Step3Account() {
-  return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">계정 정보 입력</h1>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">아이디(이메일)</label>
-        <Input type="email" placeholder="email@example.com" />
-      </div>
-
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">비밀번호</label>
-        <Input type="password" placeholder="영문+숫자 8자 이상" />
-      </div>
-
-      <Button full variant="primary">
-        회원가입 완료
-      </Button>
-    </div>
-  );
-}
-export default SignupPage;
+export default SignUpPage;

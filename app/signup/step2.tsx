@@ -26,10 +26,10 @@ const Step2 = ({ form, onNext, onPrev }: any) => {
           이전
         </Button>
 
-        <Button onClick={onNext} full>
-          다음 단계
-        </Button>
+        <Button onClick={onNext}>다음 단계</Button>
       </div>
     </div>
   );
 };
+
+export default Step2;
