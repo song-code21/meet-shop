@@ -32,7 +32,7 @@ const Header = () => {
         <nav className="flex gap-4 text-sm justify-end flex-1">
           <a href="/login">로그인</a>
           <a href="/signup">회원가입</a>
-          <a href="/cart">고객센터</a>
+          <a href="/support">고객센터</a>
           <a href="/cart"> 🛒</a>
           <a href="/mypage"> 👤</a>
         </nav>
