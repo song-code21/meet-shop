@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import Search from "./ui/Search";
 
 const CATEGORIES = [
   { label: "전체상품", href: "/products" },
@@ -21,12 +22,7 @@ const Header = () => {
         </div>
         <div className="flex-1 max-w-md">
           <div className="relative">
-            <input
-              type="text"
-              placeholder="원하시는 상품을 검색하세요…"
-              className="w-full rounded-lg border border-zinc-300 px-4 py-2 pl-10 text-sm focus:border-red-500 focus:outline-none"
-            />
-            <span className="absolute left-3 top-2.5 text-zinc-500">🔍</span>
+            <Search />
           </div>
         </div>
         <nav className="flex gap-4 text-sm justify-end flex-1">
