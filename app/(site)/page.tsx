@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import ProductCard from "./(components)/productCard";
-import Button from "./(components)/ui/Button";
+import ProductCard from "../(components)/productCard";
+import Button from "../(components)/ui/Button";
 
 const MOCK_PRODUCTS = [
   {
