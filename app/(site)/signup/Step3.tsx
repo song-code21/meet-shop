@@ -1,7 +1,7 @@
-import Button from "../(components)/ui/Button";
-import FormField from "../(components)/ui/form/FormField";
-import FormItem from "../(components)/ui/form/FormItem";
-import Input from "../(components)/ui/Input";
+import Button from "../../(components)/ui/Button";
+import FormField from "../../(components)/ui/form/FormField";
+import FormItem from "../../(components)/ui/form/FormItem";
+import Input from "../../(components)/ui/Input";
 
 const Step3 = ({ form, onNext, onPrev }: any) => {
   const memberType = form.watch("memberType");
