@@ -1,7 +1,7 @@
-import Button from "../(components)/ui/Button";
-import FormField from "../(components)/ui/form/FormField";
-import FormItem from "../(components)/ui/form/FormItem";
-import Radio from "../(components)/ui/Radio";
+import Button from "../../(components)/ui/Button";
+import FormField from "../../(components)/ui/form/FormField";
+import FormItem from "../../(components)/ui/form/FormItem";
+import Radio from "../../(components)/ui/Radio";
 
 const Step1 = ({ form, onNext }: any) => {
   return (

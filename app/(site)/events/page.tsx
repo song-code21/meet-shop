@@ -1,4 +1,4 @@
-import EventCard from "../(components)/eventCard";
+import EventCard from "../../(components)/eventCard";
 
 const MOCK_PRODUCTS = [
   {

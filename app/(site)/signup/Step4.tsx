@@ -1,9 +1,9 @@
 "use client";
 
-import FormField from "../(components)/ui/form/FormField";
-import FormItem from "../(components)/ui/form/FormItem";
-import Input from "../(components)/ui/Input";
-import Button from "../(components)/ui/Button";
+import FormField from "../../(components)/ui/form/FormField";
+import FormItem from "../../(components)/ui/form/FormItem";
+import Input from "../../(components)/ui/Input";
+import Button from "../../(components)/ui/Button";
 
 const Step4 = ({ form, onPrev }: any) => {
   return (

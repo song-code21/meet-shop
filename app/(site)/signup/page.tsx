@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Form from "../(components)/ui/form/Form";
+import Form from "../../(components)/ui/form/Form";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";

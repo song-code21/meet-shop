@@ -1,7 +1,7 @@
-import Button from "../(components)/ui/Button";
-import Checkbox from "../(components)/ui/CheckBox";
-import FormField from "../(components)/ui/form/FormField";
-import FormItem from "../(components)/ui/form/FormItem";
+import Button from "../../(components)/ui/Button";
+import Checkbox from "../../(components)/ui/CheckBox";
+import FormField from "../../(components)/ui/form/FormField";
+import FormItem from "../../(components)/ui/form/FormItem";
 
 const Step2 = ({ form, onNext, onPrev }: any) => {
   return (
