@@ -8,7 +8,7 @@ const CATEGORIES = [
   { label: "상품관리", href: "/admin/product" },
   { label: "배너관리", href: "/admin/banner" },
   { label: "기획전&이벤트관리", href: "/admin/events" },
-  { label: "회원관리", href: "/admin/order" },
+  { label: "회원관리", href: "/admin/user" },
 ] as const;
 
 const Header = () => {
