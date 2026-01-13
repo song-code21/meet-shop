@@ -17,7 +17,7 @@ const Header = () => {
     <header className="w-full border-b bg-white sticky top-0 z-10">
       <div className="mx-auto flex h-14 max-w-5xl items-center px-4 text-black">
         <div className="flex-1">
-          <a href="/" className="text-lg font-semibold">
+          <a href="/admin" className="text-lg font-semibold">
             🥩 황뜰미트 유황꿀돼지
           </a>
         </div>
