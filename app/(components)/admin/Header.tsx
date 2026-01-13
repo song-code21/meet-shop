@@ -4,11 +4,11 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 const CATEGORIES = [
-  { label: "주문배송관리", href: "/products" },
-  { label: "상품관리", href: "/deals" },
-  { label: "배너관리", href: "/events" },
-  { label: "기획전&이벤트관리", href: "/events" },
-  { label: "회원관리", href: "/events" },
+  { label: "주문배송관리", href: "/admin/order" },
+  { label: "상품관리", href: "/admin/product" },
+  { label: "배너관리", href: "/admin/banner" },
+  { label: "기획전&이벤트관리", href: "/admin/events" },
+  { label: "회원관리", href: "/admin/order" },
 ] as const;
 
 const Header = () => {
